@@ -7,7 +7,7 @@ generate_index() {
     local input="$1"
     local hash_value=$(echo -n "$input" | md5sum | cut -d' ' -f1)
     local decimal_value=$((0x${hash_value:0:8}))
-    local index=$((decimal_value % 31 + 1))
+    local index=$((decimal_value % 30 + 1))
     echo $index
 }
 
@@ -17,7 +17,7 @@ find_available_index() {
 
     while true; do
         if grep -q "^$index$" "$hash_file"; then
-            index=$((index % 31 + 1))
+            index=$((index % 30 + 1))
             if [[ $index -eq $base_index ]]; then
                 echo "All slots are full. Returning 0."
                 return 0 
@@ -160,7 +160,7 @@ case "$1" in
 		iptables -t mangle -A eqos -d $ip -j MARK --set-mark 0x99
 		fi
 		fi
-		if [ $id -gt 31 ]; then
+		if [ $id -gt 30 ]; then
 		tc class add dev $dev parent 1:1 classid 1:1$cnt htb rate ${dl}kbit ceil ${dl}kbit
 		tc filter add dev $dev parent 1:0 protocol ip u32 match ip dst $ip flowid 1:1$cnt
 		

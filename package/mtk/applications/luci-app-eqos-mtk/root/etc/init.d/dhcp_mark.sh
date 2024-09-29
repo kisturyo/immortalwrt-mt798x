@@ -3,12 +3,12 @@
 ACTION=$2
 MARK_FILE="/tmp/dhcp_mac_mark_mapping"  # 存储MAC和MARK映射关系的文件
 LEASE_FILE="/tmp/dhcp.leases"           # DHCP leases 文件
-MAX_MARK=30   # 限制mark值在1到30之间
+MAX_MARK=31   # 限制mark值在1到31之间
 
-# 定义哈希函数，将MAC地址转化为一个数值，限制在1到30之间
+# 定义哈希函数，将MAC地址转化为一个数值，限制在1到31之间
 hash_mac() {
     MAC=$1
-    # 将MAC地址中的冒号去掉，转化为十六进制数值，取模限制在1到30之间
+    # 将MAC地址中的冒号去掉，转化为十六进制数值，取模限制在1到31之间
     MAC_HEX=$(echo "$MAC" | sed 's/://g')
     echo $(( 0x$MAC_HEX % MAX_MARK + 1 ))
 }

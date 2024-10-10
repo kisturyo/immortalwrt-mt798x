@@ -7,7 +7,7 @@ hqos_path="/sys/kernel/debug/hnat"
 config_load mtkhqos
 config_get hnat global hnat 1
 config_get hqos global hqos 0
-config_get txq_num global txq_num 16
+config_get txq_num global txq_num 64
 
 config_get sch0_enable global sch0_enable 0
 config_get sch0_mode global sch0_mode 0

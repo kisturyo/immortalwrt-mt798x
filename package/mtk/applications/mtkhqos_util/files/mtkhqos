@@ -153,4 +153,4 @@ config_foreach setup_queue queue
 
 # enable hooks
 echo 1 > $hqos_path/hook_toggle
-echo 1 > $hqos_path/qos_toggle
+echo 2 > $hqos_path/qos_toggle

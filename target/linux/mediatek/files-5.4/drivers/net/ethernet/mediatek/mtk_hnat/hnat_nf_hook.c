@@ -1960,6 +1960,8 @@ static unsigned int skb_to_hnat_info(struct sk_buff *skb,
 		qid = (dscp>>2)& (MTK_QDMA_TX_MASK);
 
 	if (IS_PPPQ_MODE) {
+		qid+= gmac;
+		if (gmac == 0) qid+= 12;
 		if (ntohs(eth->h_proto) == ETH_P_IP) {
 			iph = ip_hdr(skb);
 			if (iph->protocol == IPPROTO_TCP) {

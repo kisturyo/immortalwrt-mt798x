@@ -752,13 +752,21 @@ setup_model()
 	abt,asr3000* |\
 	*clt,r30b1* |\
 	cmcc,a10* |\
+ 	*e-life,etr631-t* |\
+	*e-life,etr635-u* |\
 	xiaomi,mi-router-wr30u* |\
 	xiaomi,mi-router-ax3000t* |\
 	*rax3000m* |\
+        *cmcc,xr30* |\
 	h3c,nx30pro |\
 	konka,komi-a31 |\
+        *kst,wf3000a* |\
 	*nokia,ea0326gmp* |\
+        *newland,nl-wr8103* |\
+	*newland,nl-wr9103* |\
 	nradio,wt9103 |\
+        *sl,3000* |\
+        *sl,3000-emmc* |\
 	*7981*)
 		MT7981_whnat $num_of_wifi $usbnet
 		;;
